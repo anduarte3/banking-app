@@ -5,18 +5,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SignInView {
     Scene signInScene;
-    Scene signUpScene;
     Button signinBtn;
     Button signupBtn;
 
     public void display(Stage window) {
-
-        Label labelOne = new Label("Welcome first scene");
+        Sidebar sidebarComponent = new Sidebar();
+        VBox sidebar = sidebarComponent.getSidebar();
+        Label labelOne = new Label("Welcome to Eclyn Bank!");
 
         signinBtn = new Button("Sign in");
         signinBtn.setOnAction(e -> System.out.println("Hey now"));
@@ -27,20 +28,26 @@ public class SignInView {
             signUp.display(window);
         });
 
-        TextField username = new TextField("username");
-        TextField password = new TextField("password");
+        // Input fields
+        Label labelEmail = new Label("Email");
+        TextField email = new TextField("");
+        Label labelPassword = new Label("Password");
+        TextField password = new TextField("");
 
         // Layout Sign In
         VBox layoutOne = new VBox(20);
         layoutOne.setPadding(new Insets(50));
-        layoutOne.getChildren().addAll(labelOne, username, password, signinBtn, signupBtn);
+        layoutOne.getChildren().addAll(labelOne, labelEmail, email, labelPassword, password, signinBtn, signupBtn);
 
-        signInScene = new Scene(layoutOne, 1024,768);
+        BorderPane borderPane = new BorderPane();
+        borderPane.setLeft(sidebar);
+        borderPane.setCenter(layoutOne);
+
+        // Setting Scene on window
+        signInScene = new Scene(borderPane, 1024,650);
         window.setScene(signInScene);
         window.setTitle("Eclyn Bank");
         window.show();
-
-        System.out.println("Hello from SignInView!");
 
     }
 }
