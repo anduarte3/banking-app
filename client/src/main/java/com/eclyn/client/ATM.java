@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -11,11 +12,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
 
+// Import other classes
+import com.eclyn.client.view.SignInView;
+
 import javax.swing.*;
 import java.io.IOException;
 
-public class ATM extends Application implements EventHandler<ActionEvent> {
-    Button button;
+public class ATM extends Application {
+    Stage window;
+    Scene signInScene;
+    Scene signUpScene;
+    Button signinBtn;
+    Button signupBtn;
 
     public static void main(String[] args) {
         launch(args);
@@ -23,27 +31,26 @@ public class ATM extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void start(Stage stage) throws IOException {
-        stage.setTitle("Eclyn Bank");
-
-        button = new Button();
-        button.setText("Sign in");
-
-        button.setOnAction(this);
         // Stage = Window
-        StackPane layout = new StackPane();
-        layout.getChildren().add(button);
-
         // Scene = everything inside window, buttons, input etc...
-        Scene scene = new Scene(layout, 1024, 768);
-        stage.setScene(scene);
-        stage.show();
+        window = stage;
+
+        // Start with Sign in Page
+        SignInView signIn = new SignInView(); // pass stage
+        signIn.display(window);
     }
 
-    @Override
-    public void handle(ActionEvent event) {
-        // Send data to backend
-        if (event.getSource() == button) {
-            System.out.println("Test");
-        }
-    }
 }
+
+///src
+//└── /com/eclyn/client
+//    ├── Main.java                 ← entry point
+//    ├── /view
+//    │   ├── LoginView.java
+//    │   └── DashboardView.java
+//    ├── /component
+//    │   └── ButtonFactory.java
+//    ├── /controller
+//    │   └── LoginController.java
+//    └── /util
+//        └── ValidationUtils.java
