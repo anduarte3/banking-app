@@ -17,7 +17,6 @@ public class SignInView {
     public void display(Stage window) {
         Sidebar sidebarComponent = new Sidebar();
         VBox sidebar = sidebarComponent.getSidebar();
-        Label labelOne = new Label("Welcome to Eclyn Bank!");
 
         signinBtn = new Button("Sign in");
         signinBtn.setOnAction(e -> System.out.println("Hey now"));
@@ -31,13 +30,15 @@ public class SignInView {
         // Input fields
         Label labelEmail = new Label("Email");
         TextField email = new TextField("");
+        email.setMaxWidth(140);
         Label labelPassword = new Label("Password");
         TextField password = new TextField("");
+        password.setMaxWidth(140);
 
         // Layout Sign In
         VBox layoutOne = new VBox(20);
         layoutOne.setPadding(new Insets(50));
-        layoutOne.getChildren().addAll(labelOne, labelEmail, email, labelPassword, password, signinBtn, signupBtn);
+        layoutOne.getChildren().addAll(labelEmail, email, labelPassword, password, signinBtn, signupBtn);
 
         BorderPane borderPane = new BorderPane();
         borderPane.setLeft(sidebar);

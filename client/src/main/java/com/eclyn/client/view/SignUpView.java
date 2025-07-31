@@ -16,19 +16,23 @@ public class SignUpView {
     public void display(Stage window) {
         Sidebar sidebarComponent = new Sidebar();
         VBox sidebar = sidebarComponent.getSidebar();
-        Label labelTwo = new Label("Welcome second scene");
 
         // Input fields
         Label labelFirstName = new Label("First Name");
         TextField FirstName = new TextField("");
+        FirstName.setMaxWidth(140);
         Label labelLastName = new Label("Last Name");
         TextField LastName = new TextField("");
+        LastName.setMaxWidth(140);
         Label labelEmail = new Label("Email Name");
         TextField email = new TextField("");
+        email.setMaxWidth(140);
         Label labelPassword = new Label("Password");
         TextField password = new TextField("");
+        password.setMaxWidth(140);
         Label labelConfirmPassword = new Label("Confirm Password");
         TextField confirmPassword = new TextField("");
+        confirmPassword.setMaxWidth(140);
 
         signinBtn = new Button("Sign in");
         signinBtn.setOnAction(e -> {
@@ -40,7 +44,7 @@ public class SignUpView {
         // Layout Sign In
         VBox layoutTwo = new VBox(20);
         layoutTwo.setPadding(new Insets(50));
-        layoutTwo.getChildren().addAll(labelTwo, labelFirstName, FirstName, labelLastName, LastName,
+        layoutTwo.getChildren().addAll(labelFirstName, FirstName, labelLastName, LastName,
                 labelEmail, email, labelPassword, password, labelConfirmPassword, confirmPassword, signinBtn);
 
         BorderPane borderPane = new BorderPane();
