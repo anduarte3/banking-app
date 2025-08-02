@@ -19,16 +19,13 @@ public class Sidebar {
 
         VBox sidebar = new VBox();
         sidebar.setPadding(new Insets(50));
-        sidebar.setAlignment(Pos.CENTER); // vertical + horizontal center
+        sidebar.setAlignment(Pos.CENTER);
         sidebar.setSpacing(30);
-
-
-        sidebar.setPrefWidth(200); // sidebar width
+        sidebar.setPrefWidth(200);
         sidebar.setStyle("-fx-background-color: #f0f0f0;");
 
         Label logo = new Label("Eclyn");
         logo.setStyle("-fx-text-fill: white");
-        // You can add more nav items here in future
         sidebar.getChildren().add(bankLogo);
         sidebar.setStyle("-fx-background-color: #05472A");
 

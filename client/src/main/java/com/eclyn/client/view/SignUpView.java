@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 public class SignUpView {
     Scene signUpScene;
     Button signinBtn;
+    Button signupBtn;
 
     public void display(Stage window) {
         Sidebar sidebarComponent = new Sidebar();
@@ -19,20 +21,24 @@ public class SignUpView {
 
         // Input fields
         Label labelFirstName = new Label("First Name");
-        TextField FirstName = new TextField("");
+        TextField FirstName = new TextField();
         FirstName.setMaxWidth(140);
         Label labelLastName = new Label("Last Name");
-        TextField LastName = new TextField("");
+        TextField LastName = new TextField();
         LastName.setMaxWidth(140);
         Label labelEmail = new Label("Email Name");
-        TextField email = new TextField("");
+        TextField email = new TextField();
         email.setMaxWidth(140);
         Label labelPassword = new Label("Password");
-        TextField password = new TextField("");
+        PasswordField password = new PasswordField();
         password.setMaxWidth(140);
         Label labelConfirmPassword = new Label("Confirm Password");
-        TextField confirmPassword = new TextField("");
+        PasswordField confirmPassword = new PasswordField();
         confirmPassword.setMaxWidth(140);
+
+        signupBtn = new Button("Sign up");
+        signupBtn.setOnAction(e -> {
+        });
 
         signinBtn = new Button("Sign in");
         signinBtn.setOnAction(e -> {
@@ -45,7 +51,7 @@ public class SignUpView {
         VBox layoutTwo = new VBox(20);
         layoutTwo.setPadding(new Insets(50));
         layoutTwo.getChildren().addAll(labelFirstName, FirstName, labelLastName, LastName,
-                labelEmail, email, labelPassword, password, labelConfirmPassword, confirmPassword, signinBtn);
+                labelEmail, email, labelPassword, password, labelConfirmPassword, confirmPassword, signupBtn, signinBtn);
 
         BorderPane borderPane = new BorderPane();
         borderPane.setLeft(sidebar);

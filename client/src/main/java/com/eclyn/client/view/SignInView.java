@@ -1,9 +1,11 @@
 package com.eclyn.client.view;
 
+import com.eclyn.client.controllers.SignInController;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -18,9 +20,6 @@ public class SignInView {
         Sidebar sidebarComponent = new Sidebar();
         VBox sidebar = sidebarComponent.getSidebar();
 
-        signinBtn = new Button("Sign in");
-        signinBtn.setOnAction(e -> System.out.println("Hey now"));
-
         signupBtn = new Button("Sign up");
         signupBtn.setOnAction(e -> {
             SignUpView signUp = new SignUpView(); // pass stage
@@ -29,11 +28,19 @@ public class SignInView {
 
         // Input fields
         Label labelEmail = new Label("Email");
-        TextField email = new TextField("");
+        TextField email = new TextField();
         email.setMaxWidth(140);
         Label labelPassword = new Label("Password");
-        TextField password = new TextField("");
+        PasswordField password = new PasswordField();
         password.setMaxWidth(140);
+
+
+        SignInController signIn = new SignInController();
+
+        signinBtn = new Button("Sign in");
+        signinBtn.setOnAction(e -> {
+            signIn.userInput(email.getText(), password.getText());
+        });
 
         // Layout Sign In
         VBox layoutOne = new VBox(20);
