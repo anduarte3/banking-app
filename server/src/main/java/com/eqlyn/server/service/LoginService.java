@@ -4,7 +4,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class LoginService {
-    public String loginUser(Integer id) {
-        return "User with ID " + id + " logged in.";
+
+    public String loginUser(String email, String password) {
+        // Check database, if user exists and password is correct send to login
+        return email;
     }
 }

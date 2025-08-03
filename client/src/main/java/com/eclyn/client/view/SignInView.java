@@ -34,7 +34,6 @@ public class SignInView {
         PasswordField password = new PasswordField();
         password.setMaxWidth(140);
 
-
         SignInController signIn = new SignInController();
 
         signinBtn = new Button("Sign in");
