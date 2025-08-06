@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class LoginController {
-    private LoginService loginService;
+public class RegisterController {
 
-    @PostMapping("/login")
-    public String login(@RequestParam String email, @RequestParam String password) {
-        loginService.loginUser(email, password);
+    @PostMapping("/register")
+    public String register(@RequestParam) {
+
     }
 }
