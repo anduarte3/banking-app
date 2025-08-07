@@ -1,5 +1,7 @@
 package com.eclyn.client.view;
 
+import com.eclyn.client.controllers.SignUpController;
+import com.eclyn.client.models.SignUpRequest;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -36,8 +38,18 @@ public class SignUpView {
         PasswordField confirmPassword = new PasswordField();
         confirmPassword.setMaxWidth(140);
 
+        SignUpController signUp = new SignUpController();
+
         signupBtn = new Button("Sign up");
         signupBtn.setOnAction(e -> {
+            SignUpRequest signUpRequest = new SignUpRequest(
+                    FirstName.getText(),
+                    LastName.getText(),
+                    email.getText(),
+                    password.getText(),
+                    confirmPassword.getText()
+            );
+            signUp.getSignUpData(signUpRequest);
         });
 
         signinBtn = new Button("Sign in");

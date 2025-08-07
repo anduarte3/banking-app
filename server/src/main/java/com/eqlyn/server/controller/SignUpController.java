@@ -16,7 +16,7 @@ public class SignUpController {
         this.signUpService = signUp;
     }
 
-    @GetMapping()
+    @PostMapping()
     public List<String> getSignUp() {
         return signUpService.signup();
     }
