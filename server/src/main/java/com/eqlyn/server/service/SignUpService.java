@@ -2,7 +2,6 @@ package com.eqlyn.server.service;
 
 import com.eqlyn.server.entity.User;
 import com.eqlyn.server.repository.UserRepository;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +31,6 @@ public class SignUpService {
         System.out.println("About to save user: " + newUser);
         User savedUser = userRepository.save(newUser);
         System.out.println("User saved with ID: " + savedUser.getId());
-
 
         return userRepository.save(newUser);
     }

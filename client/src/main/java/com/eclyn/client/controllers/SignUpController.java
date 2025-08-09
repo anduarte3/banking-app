@@ -10,12 +10,11 @@ import java.net.http.HttpResponse;
 public class SignUpController {
     private final HttpClient httpClient = HttpClient.newHttpClient();
 
-    public void getSignUpData(SignUpRequest signUpRequest) {
+    public int getSignUpData(SignUpRequest signUpRequest) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             String body = objectMapper.writeValueAsString(signUpRequest);
 
-            // Build HTTP request
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI("http://localhost:8080/signup"))
                     .header("Content-Type", "application/json")
@@ -27,11 +26,13 @@ public class SignUpController {
             System.out.println("Response code: " + response.statusCode());
             System.out.println("Response body: " + response.body());
 
-            System.out.println("Good!");
+            return response.statusCode();
         } catch (Exception err) {
             err.printStackTrace();
+            return -1;
         }
     }
+
 }
 
 

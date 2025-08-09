@@ -11,7 +11,7 @@ import java.net.http.HttpResponse;
 public class SignInController {
     private final HttpClient httpClient = HttpClient.newHttpClient();
 
-    public void getSignUpData(SignInRequest signInRequest) {
+    public int getSignUpData(SignInRequest signInRequest) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             String body = objectMapper.writeValueAsString(signInRequest);
@@ -28,9 +28,10 @@ public class SignInController {
             System.out.println("Response code: " + response.statusCode());
             System.out.println("Response body: " + response.body());
 
-            System.out.println("Good!");
+            return response.statusCode();
         } catch (Exception err) {
             err.printStackTrace();
+            return -1;
         }
     }
 }

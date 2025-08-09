@@ -16,13 +16,10 @@ public class ATM extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
-        // Stage = Window
-        // Scene = everything inside window, buttons, input etc...
+    public void start(Stage stage) {
         window = stage;
 
-        // Start with Sign in Page
-        SignInView signIn = new SignInView(); // pass stage
-        signIn.display(window);
+        SignInView signIn = new SignInView();
+        signIn.display(window); // pass stage to display the sign-in UI
     }
 }

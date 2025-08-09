@@ -2,7 +2,6 @@ package com.eclyn.client.view;
 
 import com.eclyn.client.controllers.SignInController;
 import com.eclyn.client.models.SignInRequest;
-import com.eclyn.client.models.SignUpRequest;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -45,6 +44,13 @@ public class SignInView {
                     password.getText()
             );
             signIn.getSignUpData(signInRequest);
+            int statusCode = signIn.getSignUpData(signInRequest);
+            if (statusCode == 200) {
+                MainView mainView = new MainView();
+                mainView.display(window);
+            } else {
+                System.out.println("Signup failed with status: " + statusCode);
+            }
         });
 
         // Layout Sign In

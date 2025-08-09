@@ -50,12 +50,20 @@ public class SignUpView {
                     confirmPassword.getText()
             );
             signUp.getSignUpData(signUpRequest);
+            int statusCode = signUp.getSignUpData(signUpRequest);
+            if (statusCode == 200) {
+                // Move to sign-in page
+                SignInView signIn = new SignInView();
+                signIn.display(window);
+            } else {
+                System.out.println("Signup failed with status: " + statusCode);
+            }
         });
 
         signinBtn = new Button("Sign in");
         signinBtn.setOnAction(e -> {
             System.out.println("To go back to login");
-            SignInView signIp = new SignInView(); // pass stage
+            SignInView signIp = new SignInView();
             signIp.display(window);
         });
 
