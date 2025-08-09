@@ -1,19 +1,23 @@
 package com.eqlyn.server.controller;
 
 import com.eqlyn.server.service.SignInService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping(path = "/signin")
 public class SignInController {
-    private SignInService loginService;
+    private final SignInService signInService;
 
-    @GetMapping("/login")
-    public List<String> login() {
-        return List.of("Hello World, Login");
+    @Autowired
+    public SignInController(SignInService signIn) {
+        this.signInService = signIn;
+    }
+
+    @PostMapping()
+    public List<String> getSignIn() {
+        return signInService.signin();
     }
 }

@@ -23,11 +23,11 @@ public class SignUpView {
 
         // Input fields
         Label labelFirstName = new Label("First Name");
-        TextField FirstName = new TextField();
-        FirstName.setMaxWidth(140);
+        TextField firstName = new TextField();
+        firstName.setMaxWidth(140);
         Label labelLastName = new Label("Last Name");
-        TextField LastName = new TextField();
-        LastName.setMaxWidth(140);
+        TextField lastName = new TextField();
+        lastName.setMaxWidth(140);
         Label labelEmail = new Label("Email Name");
         TextField email = new TextField();
         email.setMaxWidth(140);
@@ -43,8 +43,8 @@ public class SignUpView {
         signupBtn = new Button("Sign up");
         signupBtn.setOnAction(e -> {
             SignUpRequest signUpRequest = new SignUpRequest(
-                    FirstName.getText(),
-                    LastName.getText(),
+                    firstName.getText(),
+                    lastName.getText(),
                     email.getText(),
                     password.getText(),
                     confirmPassword.getText()
@@ -62,7 +62,7 @@ public class SignUpView {
         // Layout Sign In
         VBox layoutTwo = new VBox(20);
         layoutTwo.setPadding(new Insets(50));
-        layoutTwo.getChildren().addAll(labelFirstName, FirstName, labelLastName, LastName,
+        layoutTwo.getChildren().addAll(labelFirstName, firstName, labelLastName, lastName,
                 labelEmail, email, labelPassword, password, labelConfirmPassword, confirmPassword, signupBtn, signinBtn);
 
         BorderPane borderPane = new BorderPane();
