@@ -1,32 +1,36 @@
 package com.eclyn.client.controllers;
 
+import com.eclyn.client.models.SignInRequest;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class SignInController {
-    private HttpClient client = HttpClient.newHttpClient();
-    String email;
-    String password;
+    private final HttpClient httpClient = HttpClient.newHttpClient();
 
-    public boolean userInput(String user, String pass) {
-        email = user.trim();
-        password = pass.trim();
+    public void getSignUpData(SignInRequest signInRequest) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            String body = objectMapper.writeValueAsString(signInRequest);
 
-        if (email.isEmpty()) {
-            System.out.println("Email is required.");
-            return false;
-        } else if (!password.matches("\\d{4}")) { // exactly 4 digits
-            System.out.println("PIN must be exactly 4 digits.");
-            return false;
+            // Build HTTP request
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI("http://localhost:8080/signin"))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(body))
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            System.out.println("Response code: " + response.statusCode());
+            System.out.println("Response body: " + response.body());
+
+            System.out.println("Good!");
+        } catch (Exception err) {
+            err.printStackTrace();
         }
-
-
-
-
-        System.out.println("Email: " + email);
-        System.out.println("PIN accepted (not showing for security!)");
-        return true;
     }
 }

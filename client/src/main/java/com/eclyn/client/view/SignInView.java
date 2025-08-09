@@ -1,6 +1,8 @@
 package com.eclyn.client.view;
 
 import com.eclyn.client.controllers.SignInController;
+import com.eclyn.client.models.SignInRequest;
+import com.eclyn.client.models.SignUpRequest;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -38,7 +40,11 @@ public class SignInView {
 
         signinBtn = new Button("Sign in");
         signinBtn.setOnAction(e -> {
-            signIn.userInput(email.getText(), password.getText());
+            SignInRequest signInRequest = new SignInRequest(
+                    email.getText(),
+                    password.getText()
+            );
+            signIn.getSignUpData(signInRequest);
         });
 
         // Layout Sign In
