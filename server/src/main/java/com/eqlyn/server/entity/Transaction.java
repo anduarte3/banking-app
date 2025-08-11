@@ -1,8 +1,6 @@
 package com.eqlyn.server.entity;
 
 import jakarta.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Transactions")
@@ -24,10 +22,10 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Integer getTransactionId() {
+    public Integer getId() {
         return id;
     }
-    public void setTransactionId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -38,10 +36,10 @@ public class Transaction {
         this.accountId = accountId;
     }
 
-    public TransactionType getTransaction() {
+    public TransactionType getTransactionType() {
         return transactionType;
     }
-    public void setTransaction(TransactionType transactionType) {
+    public void setTransactionType(TransactionType transactionType) {
         this.transactionType = transactionType;
     }
 
