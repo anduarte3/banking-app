@@ -15,19 +15,19 @@ Secure API communication between client and server
 
 ## Tech Stack & Tools
 Client 
-JavaFX 17 - Desktop UI framework
-Java 17 - Programming language
-Maven - Dependency management and build tool
-Jackson - JSON processing for API communication
-HTTP Client - Built-in Java HTTP client for API calls
+JavaFX 17 
+Java 17
+Maven 
+Jackson
+HTTP Client
 
 Server
-Spring Boot 3.5.4 - Backend framework
-Spring Security - Authentication and authorization
-Spring Data JPA - Database operations
-Spring Web - RESTful API endpoints
-MySQL - Database
-Bean Validation - Input validation
+Spring Boot 3.5.4 
+Spring Security
+Spring Data JPA 
+Spring Web
+MySQL
+Bean Validation
 
 ---
 
