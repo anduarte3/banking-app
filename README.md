@@ -4,13 +4,12 @@ This is a very simple desktop banking application. Users can create accounts, si
 
 ---
 ## Features
-User registration and secure authentication
-Login/logout functionality
-Account balance viewing
-Deposit and withdraw money with real-time balance updates
-Transaction history tracking
-Clean and responsive desktop interface
-Secure API communication between client and server
+- Signin/Signup 
+- Login/logout 
+- Account balance
+- Deposit and withdraw
+- Transaction tracking
+- Communication between client and server done with API
 
 ## Tech Stack & Tools
 - JavaFX 17 
