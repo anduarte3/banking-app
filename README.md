@@ -13,14 +13,14 @@ Clean and responsive desktop interface
 Secure API communication between client and server
 
 ## Tech Stack & Tools
-- Client 
+### Client 
 - JavaFX 17 
 - Java 17
 - Maven 
 - Jackson
 - HTTP Client
 
-Server
+### Server
 - Spring Boot 3.5.4 
 - Spring Security
 - Spring Data JPA 
