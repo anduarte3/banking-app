@@ -31,5 +31,6 @@ Server
 ---
 
 
-<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/ca31a8df-de8f-47bb-97da-8da920fd58b2"/>
-
+<img width="1027" height="690" alt="eclynregister" src="https://github.com/user-attachments/assets/13cf3a59-c116-4646-af3d-99a1b9a29085" />
+<img width="1027" height="690" alt="eclynlogin" src="https://github.com/user-attachments/assets/40ea879c-6787-4c74-80e9-93a8c9d82228" />
+<img width="1027" height="690" alt="eclynmain" src="https://github.com/user-attachments/assets/fc8c935a-ccde-4874-bbc0-0185f5675ba1" />
