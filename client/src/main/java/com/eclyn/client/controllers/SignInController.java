@@ -9,16 +9,16 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class SignInController {
+    private static final String SIGNIN_URL = "http://localhost:8080/signin";
     private final HttpClient httpClient = HttpClient.newHttpClient();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public int getSignUpData(SignInRequest signInRequest) {
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
             String body = objectMapper.writeValueAsString(signInRequest);
 
-            // Build HTTP request
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(new URI("http://localhost:8080/signin"))
+                    .uri(URI.create(SIGNIN_URL))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.ofString(body))
                     .build();
@@ -29,9 +29,11 @@ public class SignInController {
             System.out.println("Response body: " + response.body());
 
             return response.statusCode();
+
         } catch (Exception err) {
+            System.err.println("Sign-in failed: " + err.getMessage());
             err.printStackTrace();
-            return -1;
+            return 500; // Return 500 for server errors instead of -1
         }
     }
 }
