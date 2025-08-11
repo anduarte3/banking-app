@@ -1,6 +1,6 @@
 # Eclyn Banking App
 
-This is a very simple full-stack desktop banking application. Users can create accounts, sign in, view account balances, deposit and withdraw money, and track their transaction history. The app features a JavaFX frontend + Spring Boot backend.
+This is a very simple desktop banking application. Users can create accounts, sign in, view account balances, deposit and withdraw money, and track their transaction history. The app features a JavaFX frontend + Spring Boot backend.
 
 ---
 ## Features
