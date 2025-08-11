@@ -4,8 +4,8 @@ This is a very simple desktop banking application. Users can create accounts, si
 
 ---
 ## Features
-- Signin/Signup 
-- Login/logout 
+- Signin / Signup 
+- Login / logout 
 - Account balance
 - Deposit and withdraw
 - Transaction tracking
